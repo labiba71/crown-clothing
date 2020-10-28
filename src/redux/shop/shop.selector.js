@@ -10,14 +10,14 @@ export const selectCollections = createSelector([selectShop], (shop) => {
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
-  (collections) => Object.keys(collections).map((key) => collections[key])
+  (collections) =>
+    collections ? Object.keys(collections).map((key) => collections[key]) : []
 );
 
 export const selectCollection = (collectionUrlParam) =>
-  createSelector([selectCollections], (collections) => {
-    console.log(collectionUrlParam);
-    return collections[collectionUrlParam];
-  });
+  createSelector([selectCollections], (collections) =>
+    collections ? collections[collectionUrlParam] : null
+  );
 // export const selectCollection = memoize((collectionUrlParam) =>
 //   createSelector([selectCollections], (collections) =>
 //     collections.find(

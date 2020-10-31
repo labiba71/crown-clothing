@@ -1,4 +1,4 @@
-import { createSelector, creteSelector } from "reselect";
+import { createSelector } from "reselect";
 
 const selectUser = (state) => state.user;
 
